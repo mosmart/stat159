@@ -1,0 +1,26 @@
+mkdir stat159-hw01
+cd stat159-hw01
+curl -O http://textfiles.com/food/btaco.txt
+curl -O http://textfiles.com/food/1st_aid.txt
+curl -O http://textfiles.com/food/beesherb.txt
+curl -O http://archive.ics.uci.edu/ml/machine-learning-databases/forest-fires/forestfires.csv
+curl -O http://www.math.uah.edu/stat/data/Fisher.csv
+curl -O http://web.pdx.edu/~gerbing/data/cars.csv
+pwd
+ls
+ls -l
+mkdir txt_files
+mkdir csv_files
+mv *.txt txt_files/
+mv *.csv csv_files/
+mkdir copies
+cp txt_files/*.txt copies/
+cp csv_files/*.csv copies/
+cd copies/
+mv Fisher.csv iris.csv
+mv btaco.txt btaco-recipe.txt
+mv copies/ copy-files/
+cd ..
+rm -r copy-files/
+cd txt_files
+ls -r
