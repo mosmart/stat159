@@ -1,5 +1,6 @@
 mkdir stat159-hw01
-cd stat159-hw01
+cd stat159-hw01/
+curl -O http://textfiles.com/food/bread.txt
 curl -O http://textfiles.com/food/btaco.txt
 curl -O http://textfiles.com/food/1st_aid.txt
 curl -O http://textfiles.com/food/beesherb.txt
@@ -9,18 +10,20 @@ curl -O http://web.pdx.edu/~gerbing/data/cars.csv
 pwd
 ls
 ls -l
+mkdir data
+cd data/
 mkdir txt_files
 mkdir csv_files
-mv *.txt txt_files/
-mv *.csv csv_files/
+mv ../*.txt txt_files/
+mv ../*.csv csv_files/
+cd ..
 mkdir copies
-cp txt_files/*.txt copies/
-cp csv_files/*.csv copies/
+cp ./data/txt_files/*.txt copies/
+cp ./data/csv_files/*.csv copies/
 cd copies/
 mv Fisher.csv iris.csv
-mv btaco.txt btaco-recipe.txt
-mv copies/ copy-files/
+mv bread.txt bread-recipe.txt
 cd ..
+mv copies/ copy-files/
 rm -r copy-files/
-cd txt_files
-ls -r
+ls -r ./data/txt_files/
