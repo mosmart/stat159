@@ -3,7 +3,8 @@
 #### Author:   
 Morgan Smart
 #### Setting up the file structure:
-The final file structure will look as follows:    
+The final file structure will look as follows:  
+'''  
 :       stat159-fall2016-project1/    
             .gitignore
             README.md
@@ -22,6 +23,7 @@ The final file structure will look as follows:
         		markdown-logo.png
         		pandoc-logo.png
         		stat159-logo.png
+'''
 
 Use the following code to set up the directories, create empty files, and download images:
 :       mkdir stat159-fall2016-project1/
