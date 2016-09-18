@@ -1,15 +1,16 @@
 # Reproducing My Paper Instructions 
  ---
-## Author:   
-Morgan Smart
+#### Author:   
+Morgan Smart  
 
-#### Setting up the file structure:   
-The final file structure will look as follows:  
-'stat159-fall2016-project1/  
-   .gitignore  
-   README.md  
-   Makefile'
+#### Setting up the file structure:  
 
+The final file structure will look as follows: 
+   
+        stat159-fall2016-project1/    
+            .gitignore
+            README.md
+            Makefile
             paper/
                 sections/  
             		00-abstract.md  
@@ -24,10 +25,10 @@ The final file structure will look as follows:
         		markdown-logo.png
         		pandoc-logo.png
         		stat159-logo.png
-'''
 
-Use the following code to set up the directories, create empty files, and download images:
-:       mkdir stat159-fall2016-project1/
+Use the following code to set up the directories, create empty files, and download images:  
+
+        mkdir stat159-fall2016-project1/
 	    cd stat159-fall2016-project1/
 	    mkdir paper
 	    cd paper
@@ -44,6 +45,7 @@ Use the following code to set up the directories, create empty files, and downlo
 	    curl -O https://raw.githubusercontent.com/ucb-stat159/stat159-fall-2016/master/projects/proj01/images/markdown-logo.png
 	    curl -O https://raw.githubusercontent.com/ucb-stat159/stat159-fall-2016/master/projects/proj01/images/pandoc-logo.png
 	    curl -O https://raw.githubusercontent.com/ucb-stat159/stat159-fall-2016/master/projects/proj01/images/stat159-logo.png
+
 
 #### Writing the Paper:
 1. Add content to the .md files in the directory sections/  
