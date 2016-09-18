@@ -1,14 +1,15 @@
 # Reproducing My Paper Instructions 
  ---
-#### Author:   
+## Author:   
 Morgan Smart
-#### Setting up the file structure:
+
+#### Setting up the file structure:   
 The final file structure will look as follows:  
-'''  
-:       stat159-fall2016-project1/    
-            .gitignore
-            README.md
-            Makefile
+'stat159-fall2016-project1/  
+   .gitignore  
+   README.md  
+   Makefile'
+
             paper/
                 sections/  
             		00-abstract.md  
