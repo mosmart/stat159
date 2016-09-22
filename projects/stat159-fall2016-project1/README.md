@@ -5,7 +5,7 @@ Morgan Smart
 
 #### Setting up the file structure:  
 
-The final file structure will look as follows: 
+The file structure of the files used to create the paper is as follows: 
    
         stat159-fall2016-project1/    
             .gitignore
@@ -26,7 +26,7 @@ The final file structure will look as follows:
         		pandoc-logo.png
         		stat159-logo.png
 
-Use the following code to set up the directories, create empty files, and download images:  
+The following code was used to set up the directories, create empty files, and download images used in the paper:  
 
         mkdir stat159-fall2016-project1/
 	    cd stat159-fall2016-project1/
@@ -47,25 +47,10 @@ Use the following code to set up the directories, create empty files, and downlo
 	    curl -O https://raw.githubusercontent.com/ucb-stat159/stat159-fall-2016/master/projects/proj01/images/stat159-logo.png
 
 
-#### Writing the Paper:
-1. Add content to the .md files in the directory sections/  
-    * You have to describe---in your own words---how you work on this assignment (tell us about your experience), commenting on the following aspects:
-        * Explain what is a Makefile and the role it plays in this reproducible workflow.
-        * Explain what is Git, and its role in this reproducible workflow.
-        * Explain what is GitHub, and its role in this project.
-        * Explain what is pandoc, and comment on its usefulness (or advantages).
-        * Explain what is Markdown.
-        * What resources you used to get the job done?
-        * What were the "easy" parts?
-        * What were the challenging parts?
-        * What things you were stuck with?
-        * What was the most time consuming part?
-        * Did you work with and/or get help from someone else? If yes, in what manner?
-        * How much time did it take?
-    * After creating the text content, add the .pgn images from the directory images/ to the .md files where you deem fit
-2. Stich the .md files in the directory sections/ together and call this file paper.md
-3. Create the Makefile containing two targets: the html paper paper.html, and a clean phony target that removes the html file.
-4. Add text content to the README.md (written in markdown) describing the project's structure, author's name, and creative commons license of your choice.
+#### Assembling the Paper:
+1. Clone my github repository: https://github.com/mosmart/stat159-Morgan-Smart.git
+2. Navigate to ./projects/stat159-fall2016-project1 (this is where all of the files used to create this paper are stored)
+2. Run the file 'Makefile' to concatenate the .md files in ./paper/sections/ into paper.md and change the file type of paper.md to html. This results in the output file: paper.html. The paper.html file is stored in ./paper/
  
 [Creative Commons License](https://creativecommons.org/licenses/by-nc/4.0/)  
 ![creative commones license](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)
