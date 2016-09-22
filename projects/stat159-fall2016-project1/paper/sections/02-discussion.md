@@ -8,11 +8,11 @@ Makefile is ...
 
 Git is ...
 
-### What is <img src="../../images/github-logo.png width = "60"> ?
+### What is <img src="../../images/github-logo.png width = "70"> ?
 
 GitHub is ...
 
-### What is <img src="../../images/pandoc-logo.png" width = "80"> ?
+### What is <img src="../../images/pandoc-logo.png" width = "100"> ?
 
 Pandoc is ...
 
