@@ -1,3 +1,5 @@
+.PHONY: all clean
+
 all: paper.html
 
 paper.md: sections/.
@@ -5,3 +7,6 @@ paper.md: sections/.
 
 paper.html: paper.md
 	pandoc paper.md -f markdown -t html -o paper.html
+
+clean:
+	rm -f paper.html
