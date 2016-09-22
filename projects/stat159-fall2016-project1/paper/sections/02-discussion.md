@@ -4,7 +4,7 @@
 
 Makefile is ...
 
-### What is ![](../../images/git-logo.png) ?
+### What is ![](../../images/git-logo.png =25x) ?
 
 Git is ...
 
