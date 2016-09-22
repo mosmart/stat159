@@ -8,11 +8,11 @@ Makefile is ...
 
 Git is ...
 
-### What is <img src="../../images/github-logo.png width = "58"> ?
+### What is <img src="../../images/github-logo.png width = "60"> ?
 
 GitHub is ...
 
-### What is <img src="../../images/pandoc-logo.png" width = "65"> ?
+### What is <img src="../../images/pandoc-logo.png" width = "80"> ?
 
 Pandoc is ...
 
@@ -20,7 +20,7 @@ Pandoc is ...
 
 Markdown is ...
 
-### The Paper Writing Experience <img src="../../images/stat159-logo.png" width="55" 
+### The Paper Writing Experience <img src="../../images/stat159-logo.png" width="60"> 
 
 Writing this paper demonstrated how useful Markdown, Git, GitHub, pandoc, and Makefile can be. When writing prior paper, I've always stumbled upon wanting to go back to an old version or making my output prettier and using these tools rather than Microsoft Word solved these issues.
 
