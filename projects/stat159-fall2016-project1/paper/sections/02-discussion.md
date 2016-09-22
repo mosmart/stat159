@@ -4,23 +4,23 @@
 
 Makefile is ...
 
-### What is <img src="../../images/git-logo.png" width="48"> ?
+### What is <img src="../../images/git-logo.png" width="55"> ?
 
 Git is ...
 
-### What is ![](../../images/github-logo.png) ?
+### What is <img src="../../images/github-logo.png width = "58"> ?
 
 GitHub is ...
 
-### What is ![](../../images/pandoc-logo.png) ?
+### What is <img src="../../images/pandoc-logo.png" width = "65"> ?
 
 Pandoc is ...
 
-### What is ![](../../images/markdown-logo.png) ?
+### What is <img src="../../images/markdown-logo.png" width="55"> ?
 
 Markdown is ...
 
-### The Paper Writing Experience ![](../../images/stat159-logo.png) 
+### The Paper Writing Experience <img src="../../images/stat159-logo.png" width="55" 
 
-Writing this paper demonstrated how useful Markdown, Git, GitHub, pandoc, and Makefile can be. When writing prior paper, I'€™ve always stumbled upon wanting to go back to an old version or making my output prettier and using these tools rather than Microsoft Word solved these issues.
+Writing this paper demonstrated how useful Markdown, Git, GitHub, pandoc, and Makefile can be. When writing prior paper, I've always stumbled upon wanting to go back to an old version or making my output prettier and using these tools rather than Microsoft Word solved these issues.
 
