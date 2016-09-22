@@ -9,4 +9,4 @@ paper.html: paper.md
 	pandoc paper.md -f markdown -t html -o paper.html
 
 clean:
-	rm -f paper.html
+	rm -f paper.html paper.md
