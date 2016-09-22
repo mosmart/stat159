@@ -2,25 +2,25 @@
 
 ### What is Makefile?
 
-Makefile is…
+Makefile is ...
 
 ### What is ![](../../images/git-logo.png) ?
 
-Git is …
+Git is ...
 
-### What is [](../../images/github-logo.png) ?
+### What is ![](../../images/github-logo.png) ?
 
-GitHub is …
+GitHub is ...
 
-### What is [](../../images/pandoc-logo.png) ?
+### What is ![](../../images/pandoc-logo.png) ?
 
-Pandoc is…
+Pandoc is ...
 
-### What is [](../../images/markdown-logo.png) ?
+### What is ![](../../images/markdown-logo.png) ?
 
-Markdown is…
+Markdown is ...
 
-### The Paper Writing Experience [](../../images/stat159-logo.png) 
+### The Paper Writing Experience ![](../../images/stat159-logo.png) 
 
-Writing this paper demonstrated how useful Markdown, Git, GitHub, pandoc, and Makefile can be. When writing prior paper, I’ve always stumbled upon wanting to go back to an old version or making my output prettier and using these tools rather than Microsoft Word solved these issues.
-i
+Writing this paper demonstrated how useful Markdown, Git, GitHub, pandoc, and Makefile can be. When writing prior paper, I'��ve always stumbled upon wanting to go back to an old version or making my output prettier and using these tools rather than Microsoft Word solved these issues.
+
