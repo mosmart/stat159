@@ -50,7 +50,7 @@ The following code was used to set up the directories, create empty files, and d
 #### Assembling the Paper:
 1. Clone my github repository: https://github.com/mosmart/stat159-Morgan-Smart.git
 2. Navigate to ./projects/stat159-fall2016-project1 (this is where all of the files used to create this paper are stored)
-2. Run the file 'Makefile' to concatenate the .md files in ./paper/sections/ into paper.md and change the file type of paper.md to html. This results in the output file: paper.html. The paper.html file is stored in ./paper/
+2. In the directory stat159-fall2016-project1/, run the command `make all` to concatenate the .md files in ./paper/sections/ into paper.md and change the file type of paper.md to html. This results in the output file: paper.html. The paper.html file is stored in ./paper/
  
 [Creative Commons License](https://creativecommons.org/licenses/by-nc/4.0/)  
 ![creative commones license](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)

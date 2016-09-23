@@ -2,7 +2,7 @@
 
 all: paper.html
 
-paper.md: sections/.
+paper.md: sections/. ../images/.
 	cat sections/*.md > paper.md
 
 paper.html: paper.md
