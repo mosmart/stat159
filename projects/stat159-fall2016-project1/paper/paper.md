@@ -9,11 +9,11 @@ Although there are many tools that could be used to write a paper, the tools use
 
 # Discussion
 
-### What is <img src="./images/markdown-logo.png" width="55"> ?
+### What is <img src="../images/markdown-logo.png" width="55"> ?
 
 Markdown is a text formatter that turns plain text into things such as headers, bolded text, and bulleted lists. Its designed purpose was to be an alternative to HTML that would allow people with no HTML experience to create web pages. However, it's also a great way to format text because it's syntax is accepted by many content management solutions such as Reddit and GitHub. Thus, papers written in markdown won't be misconstrued as often and are easier to reproduce because the syntax they are written in is widely accepted by many text editing and displaying platforms. This is why this paper is written in markdown.
 
-### What is <img src="./images/git-logo.png" width="55"> ?
+### What is <img src="../images/git-logo.png" width="55"> ?
 
 Git is a form a version control. While one could save several versions of code or a paper, storing all of these versions takes up space and without good file organization it could be very hard to keep track of which version is which. Git takes care of these issues by tracking and storing changes all in the same file. Additionally, one can add comments every time he or she makes a change to keep track of the changes being made. If someone wants to go back to view his or her history, he or she can do this by typing `git log`. This command will show the history of time of and the comment made for each change. If the user wants to go back to a prior version of his file, he can locate that desired version in his history and convert back to it using the command `git checkout`. For example, this paper was written over several days and each time new content was added it was tracked in Git. When it came time to select the final version of each file and also to write about the length of time the paper took to write, it was very clear when files were altered and on what dates (giving a rough estimate of time spent on the paper).
 
@@ -21,13 +21,13 @@ Git also enables collaboration on a file. If two users want to edit the same fil
 
 Using Git for version control and collaboration with version control leads to better documentation of the file development process and thus more accuracy because it's easy to check changes being made and make changes without overwriting another collaborators changes. This will ultimately lead to better reproducibility because the file development process was tracked. Git was used to track the files generating this paper for this very reason: so the file creating could be explained so the paper could be reproduced.
 
-### What is <img src="./images/github-logo.png" width="100"> ?
+### What is <img src="../images/github-logo.png" width="100"> ?
 
 GitHub is a cloud one can store files on. One can create several GitHub repositories and store files for each project he works on in each repository. The repositories on a users account on github.com are that users remote repositories. He can then clone his repository to his local computer, creating an identical version of the remote repository as a local repository. GitHub also come equipped for a README.md file and Git version control. A README.md file is a markdown file that describes the content of a GitHub repository. If a user wants his research in a given repository to be reproducible, he should describe how to reproduce his research in the README.md file. This is why GitHub was used to generate this paper. 
 
 GitHub has several benefits. One benefit is GitHub is a cloud. If file storage on a users computer is low, no problem: store the files on GitHub. A second benefit is a user can make his GitHub account public so others can view, comment on, and even edit his files if permission is granted. A third benefit is GitHub leads to easier to reproduce research. If a repository is made public, any GitHub user can clone the repository to her local computer and re-run the analysis (permitting that all required files are in the repository and the README.md file discribes how to reproduce the research). GitHub was used to store the files used to generate this paper so that anyone could clone the repository the files are stored in and easily reproduce the paper by reading the instructions of the README.md file.
 
-### What is <img src="./images/pandoc-logo.png" width = "250"> ?
+### What is <img src="../images/pandoc-logo.png" width = "250"> ?
 
 Pandoc is a document converter that is ran from the command line. It can convert several kinds of documents such as markdown, HTML, and LaTex to several kinds of documents such as PDF or XML. Pandoc understands markdown syntax extensions such as footnotes and tables and also understands LaTex math within markdown documents. Thus, pandoc is a great tool for file conversion because it can convert files that include syntax that other document converters might not understand. Pandoc was used to generate the final output of this paper (written in markdown) to html so it could be publicly distributed and reproduced.
 
@@ -35,7 +35,7 @@ Pandoc is a document converter that is ran from the command line. It can convert
 
 Makefile is a program automation tool. A user can run the command `make` on a makefile from the command line and execute shell commands within this makefile. A makefile contains a list of rules that tell the system command to executed. Each rule contains two lines. The first line contains the target, a colon, and the source files (files that the command in the second line requires in order to run, such as a data.csv file for a command that executes and R file that takes in the data.csv file) The second line contains the commands to run. Once a makefile is setup, a program can be compiled (and recompiled/reproduced) by simply running the command `make` followed by the target name of the desired program.
 
-### The Paper Writing Experience <img src="./images/stat159-logo.png" width="60"> 
+### The Paper Writing Experience <img src="../images/stat159-logo.png" width="60"> 
 
 Writing this paper demonstrated how useful Markdown, Git, GitHub, pandoc, and Makefile can be. When writing prior papers, I've always stumbled upon wanting to go back to an old version or making my output prettier. Using these tools rather than Microsoft Word solved these issues. In order to get the job done, I had to use not just these tools but also had to learn about how to use the tools. This learning process was the most challenging aspect of writing the paper. Although the tools are easy to use once one is used to using the command line, I've had very little experience with the command line and experienced a steep learning curve. One thing that got me particularly stuck, for example, was getting errors when using the command line about missing packages required for pandoc to execute the file conversion. After a lot of internet searching (the most time consuming part of writing this paper), I discovered that these errors were thrown because the package requirements for pandoc weren't in the correct path. Searching the internet for information was the easiest part of writing the paper. I didn't get any help from live humans but I did use the internet to get information about the errors I mentioned and also about how to use the the tools used to generate this paper. All in all, writing and assembling the paper took me approximately 10 hours.
 
