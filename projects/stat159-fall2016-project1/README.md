@@ -30,6 +30,7 @@ The following code was used to set up the directories, create empty files, and d
 
         mkdir stat159-fall2016-project1/
 	    cd stat159-fall2016-project1/
+	    touch .gitignore
 	    mkdir paper
 	    cd paper
 	    mkdir sections
