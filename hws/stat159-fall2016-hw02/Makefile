@@ -6,10 +6,10 @@ report.pdf: ./report/report.Rmd ./data/regression.RData ./images/scatterplot-tv-
 	cd ./report && { Rscript -e "rmarkdown::render('report.Rmd')" ; cd -; }
 
 regression.RData: ./code/regression-script.R ./data/Advertising.csv
-	cd ./code && { Rscript -e “regression-script.R” ; cd -; }
+	cd ./code && { Rscript regression-script.R ; cd -; }
 
 eda-output.txt: ./code/eda-script.R ./data/Advertising.csv
-	cd ./code && { Rscript -e “.code/eda-script.R” ; cd -; }
+	cd ./code && { Rscript eda-script.R ; cd -; }
 
 data: 
 	cd ./data && { curl -O http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv ; cd -; }
