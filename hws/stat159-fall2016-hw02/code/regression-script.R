@@ -8,7 +8,7 @@ Advertising <- read.csv("../data/Advertising.csv")
 
 # compute linear regression of tv on sales
 regression <- lm(Sales ~ TV, data= Advertising)
-summary_regression <- summary(lm)
+summary_regression <- summary(regression)
 
 # create scatterplot of Tv on Sales
 scatterplot <- ggplot(data=Advertising, aes(TV, Sales))+geom_point(aes(colour='red'))+stat_smooth(method="lm", se=FALSE)+guides(colour = FALSE)
