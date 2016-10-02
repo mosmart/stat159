@@ -1,13 +1,17 @@
 # Read in Advertising.csv
 Advertising <- read.csv("../data/Advertising.csv")
 
+# load required packages
+## if you don't have this packages, first run: install.packages("stargazer")
+library(stargazer)
+
 # Create summary statistics table for TV and Sales
 summary_table <- data.frame(cbind(rbind(length(Advertising$TV), length(Advertising$Sales)),rbind(round(sd(Advertising$TV),2), round(sd(Advertising$Sales),2)),rbind(summary(Advertising$TV)[c(1,6,3,4)],summary(Advertising$Sales)[c(1,6,3,4)])))
 names(summary_table) <- c('n', 'SD','Min', 'Max','Median', 'Mean')
 row.names(summary_table) <- c('TV Advertising Budget (in thousands)', 'Sales (in thousands)')
-sink("../data/eda-output.txt")
-summary_table
-sink(NULL)
+#sink("../data/eda-output.txt")
+write.table(summary_table, file = "../data/eda-output.txt", sep = "\t")
+#sink(NULL)
 
 # Create histograms for TV and Sales
 ## save as pngs
