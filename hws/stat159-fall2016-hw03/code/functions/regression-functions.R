@@ -1,20 +1,24 @@
-# Residual Etandard Error (RSE)
+# Calculate Residual Standard Error (RSE):
+# Takes an lm() object as an input and returns the RSE
 residual_std_error <- function(fit) {
     sqrt( sum(residuals(fit)^2) / fit$df.residual )
 }
 
-# Residual Sum of Squares (RSS)
+# Calculate Residual Sum of Squares (RSS)
+# Takes an lm() object as an input and returns the RSS
 residual_sum_squares <- function(fit) {
     sum(residuals(fit)^2)
 }
 
-# Total Sum of Squares (TSS)
+# Calculate Total Sum of Squares (TSS)
+# Takes an lm() object as an input and returns the TSS
 total_sum_squares <- function(fit) {
     y = residuals(fit)+fitted(fit)
     sum((y-mean(y))^2)
 }
 
-# R Squared (R^2)
+# Calculate R Squared (R^2)
+# Takes an lm() object as an input and returns the R^2
 r_squared <- function(fit) {
     y = residuals(fit)+fitted(fit)
     tss = sum((y-mean(y))^2)
@@ -22,7 +26,8 @@ r_squared <- function(fit) {
     1 - rss/tss
 }
 
-# F Statistic (F-statistic)
+# Calculate F Statistic (F-statistic)
+# Takes an lm() object as an input and returns the F-statistic
 f_statistic <- function(fit) {
     y = residuals(fit)+fitted(fit)
     tss = sum((y-mean(y))^2)
