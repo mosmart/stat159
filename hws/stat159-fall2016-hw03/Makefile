@@ -12,7 +12,7 @@ eda: ./code/scripts/eda-script.R ./data/Advertising.csv
 	cd ./code/scripts && { Rscript eda-script.R ; cd -; }
 
 tests: ./code/scripts/. ./data/Advertising.csv
-	cd ./code && { Rscript test-that.R ; cd -; }
+	cd ./code && { Rscript test_file(“test-that.R”) ; cd -; }
 
 data: 
 	cd ./data && { curl -O http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv ; cd -; }
