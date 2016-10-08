@@ -1,3 +1,5 @@
+library(stargazer)
+
 # Read in Advertising.csv
 Advertising <- read.csv("../../data/Advertising.csv")
 Advertising <- Advertising[,-1]
