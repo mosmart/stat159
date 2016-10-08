@@ -22,10 +22,8 @@ test_that("RSE is same as lm() returned RSE", {
 })
 
 test_that("function only takes object lm()", {
-    expect_error(residual_std_error(5) , "object is not of class lm")
-    expect_error(residual_std_error('a') , "object is not of class lm")
-    expect_error(residual_std_error(c(1:5)) , "object is not of class lm")
-    expect_error(residual_std_error(c(rep('a', 5)) , "object is not of class lm")
+    expect_that(residual_std_error(5) , throws_error())
+    expect_that(residual_std_error(fit) is_a("lm")
 })
 
 context("Residual Sum of Squares (RSS)")
@@ -41,10 +39,8 @@ test_that("RSS < TSS", {
 })
 
 test_that("function only takes object lm()", {
-    expect_error(residual_sum_squares(5) , "object is not of class lm")
-    expect_error(residual_sum_squares('a') , "object is not of class lm")
-    expect_error(residual_sum_squares(c(1:5)) , "object is not of class lm")
-    expect_error(residual_sum_squares(c(rep('a', 5)) , "object is not of class lm")
+    expect_that(residual_std_error(5) , throws_error())
+    expect_that(residual_std_error(fit) is_a("lm")
 })
 
 context("Total Sum of Squares (TSS)")
@@ -60,10 +56,8 @@ test_that("TSS > RSS", {
 })
 
 test_that("function only takes object lm()", {
-    expect_error(total_sum_squares(5) , "object is not of class lm")
-    expect_error(total_sum_squares('a') , "object is not of class lm")
-    expect_error(total_sum_squares(c(1:5)) , "object is not of class lm")
-    expect_error(total_sum_squares(c(rep('a', 5)) , "object is not of class lm")
+    expect_that(residual_std_error(5) , throws_error())
+    expect_that(residual_std_error(fit) is_a("lm")
 })
 
 context("R Squared (R^2)")
@@ -85,10 +79,8 @@ test_that("R^2 is same as lm() returned R^2", {
 })
 
 test_that("function only takes object lm()", {
-    expect_error(r_squared(5) , "object is not of class lm")
-    expect_error(r_squared('a') , "object is not of class lm")
-    expect_error(r_squared(c(1:5)) , "object is not of class lm")
-    expect_error(r_squared(c(rep('a', 5)) , "object is not of class lm")
+    expect_that(residual_std_error(5) , throws_error())
+    expect_that(residual_std_error(fit) is_a("lm")
 })
 
 context("F Statistic (F-statistic)")
@@ -103,8 +95,6 @@ test_that("F-statistic is same as lm() returned F-statistic", {
 })
 
 test_that("function only takes object lm()", {
-    expect_error(f_statistic(5) , "object is not of class lm")
-    expect_error(f_statistic('a') , "object is not of class lm")
-    expect_error(f_statistic(c(1:5)) , "object is not of class lm")
-    expect_error(f_statistic(c(rep('a', 5)) , "object is not of class lm")
+    expect_that(residual_std_error(5) , throws_error())
+    expect_that(residual_std_error(fit) is_a("lm")
 })
