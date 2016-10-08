@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = FALSE)
 This paper replicates the analysis from Section 3.2 of Chapter 3. *Linear Regression* in "An Introduction to Statistical Learning" by James *et al*. Section 3.2 looks at advertising data and assesses: if at least one of the predictors useful in predicting the response, if all predictors help to explain the response or if only a subset of the predictors are useful, how well the model fits the data, and how accurate the model prediction is. In Section 3.2 and in this paper, these questions are answered by computing a multiple linear regression of TV, Radio, and Newspaper advertising budgets (in thousands) on Sales (in thousands) and analyzing the regression results.
 
 # Introduction
-A simple linear regression is an approach to predicting a quantitative response $Y$ based on a single predictor variable $X$, where $Y$ and $X$ are vectors and each value in $X$ ($x_i$) has a corresponding value in $Y$ ($y_i$). The model assumes that the relationship between $X$ and $Y$ is linear; thus, in order to compute a simple linear regression that has an accurate interpretation, $X$ and $Y$ **must** have a linear relationship. The simple linear model can be written as $Y \approx \beta_0 + \beta_1X$, where $\beta_0$ is the intercept and $\beta_1$ is the slope and both are constants, unknowns, and together are the model coefficients. The interpretation of $\beta_0$ is the expected mean value of $Y$ without a predictor variable and the interpretation of $\beta_1$ is the change in $Y$ for a unit increase in $X$. Although $\beta_0$ and $\beta_1$ are unknown, we can estimate them using the simple linear regression model: solving for the intercept and slope that produce the line closest to each point ($x_i$,$y_i$) in $X$,$Y$. Once we have an estimate for $\beta_0$ and $\beta_1$ and have verified the relationship between $X$ and $Y$ in linear, we can compute a simple linear regression to determine the strength of the relationship between $X$ and $Y$, if the relationship is statistically significant, and how accurately the model predicts the relationship. This process will be illustrated in the following sections using the Advertising dataset presented in Section 3.1 of Chapter 3. *Linear Regression* in "An Introduction to Statistical Learning."
+A multiple linear regression is an approach to predicting a quantitative response $Y$ based on a multiple predictor variables $X_1$ through $X_p$, where $Y$ and $X_1$ through $X_p$ are vectors and each value in each $X_ij$ ($x_ij$) has a corresponding value in $Y$ ($y_i$). The model assumes that the relationship between every $X_i$ and $Y$ is linear; thus, in order to compute a linear regression that has an accurate interpretation, every $X_i$ and $Y$ **must** have a linear relationship. Additionally, the model assumes that each $X_j$ isn't correlated with any other $X_j$. The multilple linear model can be written as $Y \approx \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_pX_p + \epsilon$, where $\beta_0$ is the intercept and $\beta_1$ through $\beta_p$ are the slopes of their corresponding predictor variable $X_j$. These beta values are all constants, unknowns, and together are the model coefficients. The interpretation of $\beta_0$ is the expected mean value of $Y$ without a predictor variable and the interpretation of $\beta_1$ through $\beta_p$ is the change in $Y$ for a unit increase in the beta's corresponding $X_j$. Although betas are unknown, we can estimate them using the multiple linear regression model: solving for the intercept and slopes that produce the plane closest to each point ($x_(ij)$,$y_i$) in each $X_j$,$Y$. Once we have an estimate for the betas, have verified that none of the $X_j$ are correlated, and have verified that the relationship between each $X_j$ and $Y$ in linear, we can compute a multiple linear regression to determine the strength of the relationship between each $X_j$ and $Y$, if the relationship is statistically significant, and how accurately the model predicts the relationship. This process will be illustrated in the following sections using the Advertising dataset presented in Section 3.2 of Chapter 3. *Linear Regression* in "An Introduction to Statistical Learning."
 
 # Data
 The Advertising dataset has $n = 200$ row entries (data points) and 5 columns. These columns are:
@@ -22,39 +22,52 @@ The Advertising dataset has $n = 200$ row entries (data points) and 5 columns. T
   * TV = Advertising budget for TV (in thousands)
   * Radio = Advertising budget for Radio (in thousands)
   * Movies = Advertising budget for Movies (in thousands)
-  * Sales = Product sales (in thousands) made having the respective TV, Radio, and Movie advertising budget
+  * Sales = Product sales (in thousands) made having the respective TV, Radio, and Movie advertising budget  
 
-The row values for each column (other than column X) are in thousands so interpretation of the simple linear model of TV advertising budget on Sales if more straight forward. For the purposes of replicating the analysis done in Section 3.1, we will only be looking at the columns Sales and TV. Table 1 contains the summary statistics of Sales and TV.
-```{r summary table, results = 'asis', message=F, warning=F, comment=F}
-library(stargazer)
-t = read.table("~/Desktop/git/mosmart/stat159-Morgan-Smart/hws/stat159-fall2016-hw02/data/eda-output.txt", sep="\t", header=T)
-stargazer(t, summary=FALSE, header=F)
-```
-As evident from Table 1, the range of TV advertising budget ($700 to $296,400) is much larger than the range of product sales (1,600 to 27,000). This in turn makes the standard deviation of TV advertising budget ($85,850) much greater than that of product sales ($5,220). Although we can see from Table 1 that the average TV advertising budget is $147,000 and the average product sales made is 14,020, we'd also like to understand the distribution of TV advertising budgets and also of product sales. Figure 1 is a histogram of TV advertising budget and Figure 2 is a histogram of product sales.
+The row values for each column (other than column X) are in thousands so interpretation of the multiple linear model of TV, Radio, and Newspaper advertising budget on Sales is more straight forward. For the purposes of replicating the analysis done in Section 3.2, we will remove the row index column "X" because it is not used in the multiple linear regression. To understand the data, below are histograms of each predictor variable (TV, Radio, and Newspaper) and also of the dependent varaible (Sales).  
 
 \begin{figure}[h]
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.75\textwidth]{../images/histogram-tv.png}
+  \includegraphics[width=.98\textwidth]{../images/histogram-tv.png}
   \caption{TV Ad Budget Histogram}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.75\textwidth]{../images/histogram-sales.png}
+  \includegraphics[width=.98\textwidth]{../images/histogram-sales.png}
   \caption{Product Sales Histogram}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.98\textwidth]{../images/histogram-radio.png}
+  \caption{Radio Ad Budget Histogram}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.98\textwidth]{../images/histogram-newspaper.png}
+  \caption{Newspaper Sales Histogram}
 \end{minipage}
 \end{figure}
 
-As evident from Figure 1, the distribution of TV advertising budget is not normal but rather is uniform. This is good for the purposes of our invertigation of the effect of TV advertising budget on product sales because we have approximately equal representation of each TV advertising budget bucket, increasing the range of our models predictability. The distribution of product sales won't effect our model because product sales is the variable we're trying to predict. However, we see from Figure 2 that the distribution of product sales is roughly normal.
+As evident from Figures 1, 3, and 4, the largest range of ad budget in the data set is for TV, second largest is for newspaper, and smallest is for radio. It's important to keep these ranges in mind when using the multiple linear regression model so that we don't extrapolate a prediction beyond the values in our data set. We also see from Figure 2 that the dependent variable (Sales) is normally distributed, an assumption of the multiple linear regression. Another assumption of the model is that the dependent variable has a linear relationship with each predictor variable. To test this, we plot a pairwise scatterplot below in Figure 5.  
+
+
 
 \begin{figure}[h]
-\caption{Scatterplot of TV vs Sales with Regression Line}
+\caption{Pairwise Scatterplot of all Variables}
 \centering
-\includegraphics[width=0.35\textwidth]{../images/scatterplot-tv-sales.png}
+\includegraphics[width=0.35\textwidth]{../images/scatterplot-matrix.png}
 \end{figure}
 
-We also must determine if the relationship between product sales and TV advertising is linear before moving forward with a simple linear regression. As evident from the scatterplot of TV advertising budget on product sales (Figure 3), the relationship is in fact linear. Thus, we can move forward with computing a simple linear regression to determine the effect of TV advertising budget on product sales.
+As evident from Figure 5, each predictor variable (TV, Radio, and Newspaper) shares a linear relationship with the dependent variable (Sales). We also must verify that the predictor variables are independent with one another. This is somewhat clear from Figure 5 given there is no clear relationship between any of the predictors in the plots, but to further verify that the predictors are in fact independent, we calculate their correlation matrix (Table 1 below).
+
+```{r correlation matrix table, results = 'asis', message=F, warning=F, comment=F}
+load("../data/correlation-matrix.Rdata")
+library(stargazer)
+stargazer(correlationMatrix, summary = F,header=F)
+```
+
 
 
 # Methodology
@@ -64,6 +77,7 @@ To assess if there is a relationship between TV advertising budget and product s
 The simple linear regression of TV advertising budget on product sales tells us that TV advertising budget has a statistically significant effect on product sales since the p-value of TV (<2e-16) is less than 0.05. This p-value can be seen in the summary statistics of the simple linear regression in Table 2. 
 ```{r coefficients table, results = 'asis', message=F, warning=F, comment=F}
 load("../data/regression.Rdata")
+library(stargazer)
 stargazer(summary_regression$coefficients,header=F)
 ```
 From Table 2, we also see that a $1,000 increase in TV advertising budget increases product sales by 4.7%. Thus, if you want to increase product sales, spending up to $296,400 on TV advertising will do that. Note that this is only true for spending up to $296,400 on TV advertising because this is the highest amount spent on TV advertising in the dataset used to generate the simple linear regression. If you want to determine if spending more than $296,400 on TV advertising, another simple linear model will have to be computed that uses a data point having TV advertising budget greater than $296,400.
