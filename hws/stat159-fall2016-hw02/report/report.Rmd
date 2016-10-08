@@ -27,7 +27,7 @@ The Advertising dataset has $n = 200$ row entries (data points) and 5 columns. T
 The row values for each column (other than column X) are in thousands so interpretation of the simple linear model of TV advertising budget on Sales if more straight forward. For the purposes of replicating the analysis done in Section 3.1, we will only be looking at the columns Sales and TV. Table 1 contains the summary statistics of Sales and TV.
 ```{r summary table, results = 'asis', message=F, warning=F, comment=F}
 library(stargazer)
-t = read.table("~/Desktop/git/mosmart/stat159-Morgan-Smart/hws/stat159-fall2016-hw02/data/eda-output.txt", sep="\t", header=T)
+t = read.table("../data/eda-output.txt", sep="\t", header=T)
 stargazer(t, summary=FALSE, header=F)
 ```
 As evident from Table 1, the range of TV advertising budget ($700 to $296,400) is much larger than the range of product sales (1,600 to 27,000). This in turn makes the standard deviation of TV advertising budget ($85,850) much greater than that of product sales ($5,220). Although we can see from Table 1 that the average TV advertising budget is $147,000 and the average product sales made is 14,020, we'd also like to understand the distribution of TV advertising budgets and also of product sales. Figure 1 is a histogram of TV advertising budget and Figure 2 is a histogram of product sales.
