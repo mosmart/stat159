@@ -6,6 +6,18 @@ Advertising = Advertising[,-1]
 regression <- lm(Sales ~ ., data= Advertising)
 summary_regression <- summary(regression)
 
+# compute linear regression of TV Ad Budget on sales
+regression1 <- lm(Sales ~ TV, data= Advertising)
+summary_regression1 <- summary(regression1)
+
+# compute linear regression of Radio Ad Budget on sales
+regression2 <- lm(Sales ~ Radio, data= Advertising)
+summary_regression2 <- summary(regression2)
+
+# compute linear regression of Newspaper Ad Budget on sales
+regression3 <- lm(Sales ~ Newspaper, data= Advertising)
+summary_regression3 <- summary(regression3)
+
 ## Residual Plot to PNG
 png("../../images/residual-plot.png")
 plot(regression, which=1)
@@ -19,4 +31,4 @@ png("../../images/normal-qq-plot.png")
 plot(regression, which=2)
 dev.off()
 
-save(regression, summary_regression, file = "../../data/regression.RData")
+save(regression,summary_regression,regression1,summary_regression1,regression2,summary_regression2,regression3,summary_regression3,file = "../../data/regression.RData")
