@@ -30,29 +30,27 @@ The row values for each column (other than column X) are in thousands so interpr
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.98\textwidth]{../images/histogram-tv.png}
+  \includegraphics[width=.97\textwidth]{../images/histogram-tv.png}
   \caption{TV Ad Budget Histogram}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.98\textwidth]{../images/histogram-sales.png}
+  \includegraphics[width=.97\textwidth]{../images/histogram-sales.png}
   \caption{Product Sales Histogram}
 \end{minipage}
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.98\textwidth]{../images/histogram-radio.png}
+  \includegraphics[width=.97\textwidth]{../images/histogram-radio.png}
   \caption{Radio Ad Budget Histogram}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.98\textwidth]{../images/histogram-newspaper.png}
+  \includegraphics[width=.97\textwidth]{../images/histogram-newspaper.png}
   \caption{Newspaper Sales Histogram}
 \end{minipage}
 \end{figure}
 
 As evident from Figures 1, 3, and 4, the largest range of ad budget in the data set is for TV, second largest is for newspaper, and smallest is for radio. It's important to keep these ranges in mind when using the multiple linear regression model so that we don't extrapolate a prediction beyond the values in our data set. We also see from Figure 2 that the dependent variable (Sales) is normally distributed, an assumption of the multiple linear regression. Another assumption of the model is that the dependent variable has a linear relationship with each predictor variable. To test this, we plot a pairwise scatterplot below in Figure 5.  
-
-
 
 \begin{figure}[h]
 \caption{Pairwise Scatterplot of all Variables}
@@ -68,10 +66,10 @@ library(stargazer)
 stargazer(correlationMatrix, summary = F,header=F)
 ```
 
-
+From Table 1, we see the highest correlation between any of the predictor variables (TV, Radio, Newspaper) is that of Newspaper and Radio (`r round(correlationMatrix[3,2],3)`) which is low. Thus, the predictor variables aren't too correlated and we can use the multiple linear regression to assess the effect of the predictors on the dependent variable (Sales).
 
 # Methodology
-To assess if there is a relationship between TV advertising budget and product sales, we ran a simple linear regression of TV advertising budget on product sales--as computed in Section 3.1. We then assessed the statistical significance of the relationship between TV advertising budget and product sales using the p-value of the predictor. If the p-value of the predictor variable $X$ is less than 0.05, $X$ has a statistically significant effect on the response variable $Y$. Finally we looked at the Residual Standard Error ($RSE$), the $R^2$, and the $F-statistic$ of the model to asses the models accuracy. Because we estimate $\beta_0$ and $\beta_1$ in our model, every observation has an error term ($\epsilon$) associated with it. The $RSE$ measures the standard deviation of $\epsilon$: the average amount the predicted response will deviate from the true regression line. It's hard to interpret what a good $RSE$ is because $RSE$ is measured only in the units of $Y$. Thus, we also look at $R^2$ which measures the proportion of variance explained by the data (always a value between 0 and 1). Ideally, we'd like to see an $R^2$ that is close to 1, though this may not always be realistic depending on the question being asked. We can also assess our model's accuracy by looking at the $F-statistic$ which tests the full model (including the predictor variable $X$) against the minimalist model that assumes all values of $X$ to be zero and uses only the mean of the values in $Y$ ($\beta_0$). Associated with an $F-statistic$ is a p-value. If this p-value is less than 0.05, there is little chance that the values of the predictor $X$ are zero and thus the full model is more accurate than the minimalist model.
+To assess if there is a relationship between TV, radio, or newspaper advertising budget and product sales, we ran a multiple linear regression of TV advertising budget on product sales--as computed in Section 3.1. We then assessed the statistical significance of the relationship between TV advertising budget and product sales using the p-value of the predictor. If the p-value of the predictor variable $X$ is less than 0.05, $X$ has a statistically significant effect on the response variable $Y$. Finally we looked at the Residual Standard Error ($RSE$), the $R^2$, and the $F-statistic$ of the model to asses the models accuracy. Because we estimate $\beta_0$ and $\beta_1$ in our model, every observation has an error term ($\epsilon$) associated with it. The $RSE$ measures the standard deviation of $\epsilon$: the average amount the predicted response will deviate from the true regression line. It's hard to interpret what a good $RSE$ is because $RSE$ is measured only in the units of $Y$. Thus, we also look at $R^2$ which measures the proportion of variance explained by the data (always a value between 0 and 1). Ideally, we'd like to see an $R^2$ that is close to 1, though this may not always be realistic depending on the question being asked. We can also assess our model's accuracy by looking at the $F-statistic$ which tests the full model (including the predictor variable $X$) against the minimalist model that assumes all values of $X$ to be zero and uses only the mean of the values in $Y$ ($\beta_0$). Associated with an $F-statistic$ is a p-value. If this p-value is less than 0.05, there is little chance that the values of the predictor $X$ are zero and thus the full model is more accurate than the minimalist model.
 
 # Results
 The simple linear regression of TV advertising budget on product sales tells us that TV advertising budget has a statistically significant effect on product sales since the p-value of TV (<2e-16) is less than 0.05. This p-value can be seen in the summary statistics of the simple linear regression in Table 2. 
