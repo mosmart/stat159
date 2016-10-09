@@ -1,8 +1,8 @@
 .PHONY: all report regression eda tests data clean
 
-all: data eda regression report 
+all: eda regression report 
 
-report: ./report/report.Rmd ./data/regression.RData ./images/*.png
+report: ./report/report.Rmd ./data/regression.RData ./data/correlation-matrix.RData ./images/*.png
 	cd ./report && { Rscript -e "rmarkdown::render('report.Rmd')" ; cd -; }
 
 regression: ./code/scripts/regression-script.R ./data/Advertising.csv
@@ -11,8 +11,8 @@ regression: ./code/scripts/regression-script.R ./data/Advertising.csv
 eda: ./code/scripts/eda-script.R ./data/Advertising.csv
 	cd ./code/scripts && { Rscript eda-script.R ; cd -; }
 
-tests: ./code/scripts/. ./data/Advertising.csv
-	cd ./code && { Rscript test_file(“test-that.R”) ; cd -; }
+tests: ./code/functions/regression-functions.R ./code/tests/test-regression.R
+	cd ./code && { Rscript test-that.R ; cd -; }
 
 data: 
 	cd ./data && { curl -O http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv ; cd -; }
