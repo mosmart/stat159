@@ -1,12 +1,16 @@
 ---
 title: "Simple Regression Analysis"
 author: "Morgan Smart"
-date: "10/1/2016"
+date: "10/8/2016"
 output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+
+percent <- function(x, digits=1, format="f", ...) {
+  paste0(formatC(100*x, format=format, digits=digits,...), "%")
+}
 ```
 
 # Abstract
@@ -62,6 +66,7 @@ As evident from Figure 5, each predictor variable (TV, Radio, and Newspaper) sha
 
 ```{r correlation matrix table, results = 'asis', message=F, warning=F, comment=F}
 load("../data/correlation-matrix.Rdata")
+load("../data/regression.Rdata")
 library(stargazer)
 stargazer(correlationMatrix, summary = F,header=F)
 ```
@@ -69,22 +74,54 @@ stargazer(correlationMatrix, summary = F,header=F)
 From Table 1, we see the highest correlation between any of the predictor variables (TV, Radio, Newspaper) is that of Newspaper and Radio (`r round(correlationMatrix[3,2],3)`) which is low. Thus, the predictor variables aren't too correlated and we can use the multiple linear regression to assess the effect of the predictors on the dependent variable (Sales).
 
 # Methodology
-To assess if there is a relationship between TV, radio, or newspaper advertising budget and product sales, we ran a multiple linear regression of TV advertising budget on product sales--as computed in Section 3.1. We then assessed the statistical significance of the relationship between TV advertising budget and product sales using the p-value of the predictor. If the p-value of the predictor variable $X$ is less than 0.05, $X$ has a statistically significant effect on the response variable $Y$. Finally we looked at the Residual Standard Error ($RSE$), the $R^2$, and the $F-statistic$ of the model to asses the models accuracy. Because we estimate $\beta_0$ and $\beta_1$ in our model, every observation has an error term ($\epsilon$) associated with it. The $RSE$ measures the standard deviation of $\epsilon$: the average amount the predicted response will deviate from the true regression line. It's hard to interpret what a good $RSE$ is because $RSE$ is measured only in the units of $Y$. Thus, we also look at $R^2$ which measures the proportion of variance explained by the data (always a value between 0 and 1). Ideally, we'd like to see an $R^2$ that is close to 1, though this may not always be realistic depending on the question being asked. We can also assess our model's accuracy by looking at the $F-statistic$ which tests the full model (including the predictor variable $X$) against the minimalist model that assumes all values of $X$ to be zero and uses only the mean of the values in $Y$ ($\beta_0$). Associated with an $F-statistic$ is a p-value. If this p-value is less than 0.05, there is little chance that the values of the predictor $X$ are zero and thus the full model is more accurate than the minimalist model.
+To assess if there is a relationship between TV, radio, or newspaper advertising budget and product sales, we ran both a multiple linear regression of all of the ad budget types on product sales as well as a simple linear regression of each ad budget type on product sales--as computed in Section 3.2. We then assessed the statistical significance of the relationship between each of the ad budgets on and product sales using the p-value of the predictor in the simple linear regression case and also when among the other predictors in the multiple linear regression case. If the p-value of the predictor variable $X_j$ is less than 0.05, $X_j$ has a statistically significant effect on the response variable $Y$. Finally we looked at the Residual Standard Error ($RSE$), the $R^2$, and the $F-statistic$ of the multiple regression model to asses the models accuracy. Because we estimate the betas in our model, every observation has an error term ($\epsilon$) associated with it. The $RSE$ measures the standard deviation of $\epsilon$: the average amount the predicted response will deviate from the true regression line. It's hard to interpret what a good $RSE$ is because $RSE$ is measured only in the units of $Y$. Thus, we also look at $R^2$ which measures the proportion of variance explained by the data (always a value between 0 and 1). Ideally, we'd like to see an $R^2$ that is close to 1, though this may not always be realistic depending on the question being asked. We can also assess our model's accuracy by looking at the $F-statistic$ which tests the full model (including all of the predictor variables $X_j$) against the minimalist model that assumes all values of each $X_j$ to be zero and uses only the mean of the values in $Y$ ($\beta_0$). Associated with an $F-statistic$ is a p-value. If this p-value is less than 0.05, there is little chance that the values of the predictor variables $X_j$ are zero and thus the full model is more accurate than the minimalist model.
 
 # Results
-The simple linear regression of TV advertising budget on product sales tells us that TV advertising budget has a statistically significant effect on product sales since the p-value of TV (<2e-16) is less than 0.05. This p-value can be seen in the summary statistics of the simple linear regression in Table 2. 
+The simple linear regression of TV advertising budget on product sales tells us that TV advertising budget has a statistically significant effect on product sales since the p-value of TV (`r round(summary_regression1$coefficients[2,4],2)`) is less than 0.05. This p-value can be seen in the summary statistics of the simple linear regression in Table 2. From Table 2, we also see that a $1,000 increase in TV advertising budget increases product sales by `r percent(summary_regression1$coefficients[2,1])`.
+
 ```{r coefficients table, results = 'asis', message=F, warning=F, comment=F}
-load("../data/regression.Rdata")
-library(stargazer)
+stargazer(summary_regression1$coefficients,header=F)
+stargazer(summary_regression2$coefficients,header=F)
+stargazer(summary_regression3$coefficients,header=F)
+```
+
+The simple linear regression of Radio advertising budget on product sales tells us that Radio advertising budget also has a statistically significant effect on product sales since the p-value of Radio (`r round(summary_regression2$coefficients[2,4],2)`) is less than 0.05 (seen in Table 3). Table 3 also shows that a $1,000 increase in Radio advertising budget increases product sales by `r percent(summary_regression2$coefficients[2,1])`. The simple linear regression of Newspaper advertising budget on product sales tells us that Newspaper advertising budget also has a statistically significant effect on product sales since the p-value of Newspaper (`r round(summary_regression3$coefficients[2,4],2)`) is less than 0.05 (see Table 4). Also from Table 4, we see that a $1,000 increase in Radio advertising budget increases product sales by `r percent(summary_regression3$coefficients[2,1])`.
+
+```{r coefficients table (all), results = 'asis', message=F, warning=F, comment=F}
 stargazer(summary_regression$coefficients,header=F)
 ```
-From Table 2, we also see that a $1,000 increase in TV advertising budget increases product sales by 4.7%. Thus, if you want to increase product sales, spending up to $296,400 on TV advertising will do that. Note that this is only true for spending up to $296,400 on TV advertising because this is the highest amount spent on TV advertising in the dataset used to generate the simple linear regression. If you want to determine if spending more than $296,400 on TV advertising, another simple linear model will have to be computed that uses a data point having TV advertising budget greater than $296,400.
 
-We are also confident that the simple linear model of TV advertising budget on product sales is accurate based on the models $RSE$, $R^2$, and $F-statistic$ (shown in Table 3). We see that the $RSE$ is 3.26, meaning that the prediction of product sales based on TV advertising budget is off by 3,260 units on average. The $R^2$ of the model is 0.612 meaning roughly two-thirds of the variability in product sales is explained by the model. Finally, the $F-statistic$ is 312.1 and it's associated p-value is <2.2e-16, meaning there is very little chance that the minimalist model is moe accurate than our model.
+Although each ad budget has an individual significant effect on product sales respectively, we'd like to assess the effect (if any) the ad budgets have on product sales when they all are taken into account. To do this, we ran a multiple linear regression of TV, Radio, and Newspaper ad budget on product sales. The results can be seen in Table 5 above. From Table 5, we see that both Radio and TV ad budget still have significant effect on product sales since their respective p-values (`r round(summary_regression$coefficients[3,4],2)` and `r round(summary_regression$coefficients[2,4],2)`) are less than 0.05. Newspaper ad budget, however, is no longer significant when assessed among TV and Radio budget, having a p-value now greater than 0.05 (`r round(summary_regression$coefficients[4,4],2)`)
+
+Finally, we assessed the accuracy of the multiple regression model and are confident that it fits the data well based on its $RSE$, $R^2$, and $F-statistic$ (Table 6) and by looking at the Normal QQ Plot, Residual Plot, and Scale Location Plot of the model (Figures 6, 7, and 8).
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.75\textwidth]{../images/normal-qq-plot.png}
+  \caption{Normal QQ Plot}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.75\textwidth]{../images/residual-plot.png}
+  \caption{Residual Plot}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.35\textwidth]{../images/scale-location-plot.png}
+\caption{Scale Location Plot}
+\end{figure}
+
+Looking at the Normal QQ Plot, we see the tails both dip down below the line. In a perfect world, we'd like to see all the point fall on the line. This would mean the data are exactly normal. However, the data are close to the line so we move on to inspect other elements of fit as well. From the Residual Plot, it seems the residuals are not homoscedastic (ideal for the model) since they don't fall evenly around and along the line. However, when we look at the Scale Location Plot, the residuals become more evenly distributed and thus we believe the model is a good fit in this sense.
+
 ```{r quantities table, results = 'asis', message=F, warning=F, comment=F}
 rse = round(summary_regression$sigma, 3)
 r_2 = round(summary_regression$r.squared, 3)
 f = round(summary_regression$fstatistic[1], 3)
+fstat = summary_regression$fstatistic
 Quantity = c('Residual standard error', 'R squared', 'F-statistic')
 Value = rbind(rse, r_2, f)
 table = data.frame(cbind(Quantity, Value))
@@ -92,6 +129,7 @@ row.names(table) <- NULL
 stargazer(table, summary=FALSE,header=F)
 ```
 
+We also look at the summary statistics of the model to get a better idea of it's fit. We see that the $RSE$ is `r round(rse, 3)`, meaning that the prediction of product sales based on TV advertising budget is off by `r round(rse, 3)*1000`  units on average. The $R^2$ of the model is `r round(r_2, 3)` meaning roughly two-thirds of the variability in product sales is explained by the model. Finally, the $F-statistic$ is `r round(f, 1)` and it's associated p-value is `r round(pf(fstat[1],fstat[2],fstat[3],lower.tail=F)[[1]],2)`, meaning there is very little chance that the minimalist model is moe accurate than the full multiple linear regression model.
 
 # Conclusions
-From this analysis, we learned that the analysis in Section 3.1 of Chapter 3. *Linear Regression* in "An Introduction to Statistical Learning" is reproducible--since we produced its results in this paper. Additionally, by viewing the data and methodology behind the analysis in Section 3.1, we verified that the assumptions of a simple linear regression were met by the data meaning the analysis has accurate interpretation. Thus, much information can be gained by reading Section 3.1 of Chapter 3. *Linear Regression* in "An Introduction to Statistical Learning" because the information it presents is accurate!
+From this analysis, we learned that the analysis in Section 3.2 of Chapter 3. *Linear Regression* in "An Introduction to Statistical Learning" is reproducible--since we produced its results in this paper. Additionally, by viewing the data and methodology behind the analysis in Section 3.2, we verified that the assumptions of a multiple linear regression were met by the data, and so, the analysis has accurate interpretation. We also learned that a simple linear model may show a predictor as being statistically significant, but when using a more complex model, that predictor may no longer be significant. Thus, it's important to experiment with adding multiple predictor variables (when applicable, makes sense, and does not violate the model's assumptions) in order to get the most accurate results.
