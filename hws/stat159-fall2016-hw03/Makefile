@@ -17,5 +17,8 @@ tests: ./code/functions/regression-functions.R ./code/tests/test-regression.R
 data: 
 	cd ./data && { curl -O http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv ; cd -; }
 
+session_info: ./code/scripts/session-info-script.R
+	cd ./code/scripts && { Rscript session-info-script.R ; cd -; }
+
 clean:
 	rm ./report/report.pdf
