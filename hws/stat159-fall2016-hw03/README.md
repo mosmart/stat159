@@ -19,11 +19,12 @@ Replicate the analysis by Gareth James, Daniela Witten, Trevor Hastie and Robert
 
 # Replicating this analysis
 1. Clone this gitHub folder `stat159-fall2016-hw03`
-2. Navigate to the parent directory and run the command `make data` to download the dataset `Advertising.csv` used for all testing and analysis
-3. In the parent directory still, run the command `make tests` to test that the functions that generate regression summary statistics work (this is NOT in the paper, but was a requirment of the assignment).
-4. Still in the parent directory, run the command `make all` to run the regression analysis, output images and `.RData` objects, and knit `report.Rmd` to the final paper PDF output.
+2. Navigate to the parent directory and look at the file `session-info.txt` to know what libraries must be installed in order to run the analysis and other information generated from the output of the function `sessionInfo()`
+3.  After verifying that you have the required packages and version of R, in the parent directory, run the command `make data` to download the dataset `Advertising.csv` used for all testing and analysis
+4. In the parent directory still, run the command `make tests` to test that the functions that generate regression summary statistics work (this is NOT in the paper, but was a requirment of the assignment).
+5. Still in the parent directory, run the command `make all` to run the regression analysis, output images and `.RData` objects, and knit `report.Rmd` to the final paper PDF output.
 
-**NOTE:** You need to have the required R packages installed as well as LaTex in order for the command `make all` to run without producing any errors. The required R packages are `stargazer` and `testthat`. 
+**NOTE:** You NEED to have the required R packages installed as well as LaTex in order for the command `make all` to run without producing any errors. The required R packages are `stargazer` and `testthat`. 
 
 [Creative Commons License](http://creativecommons.org/licenses/by-sa/4.0/) 
 ![creative commones license](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
