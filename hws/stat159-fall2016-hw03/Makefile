@@ -21,4 +21,4 @@ session_info: ./code/scripts/session-info-script.R
 	cd ./code/scripts && { Rscript session-info-script.R ; cd -; }
 
 clean:
-	rm ./report/report.pdf
+	rm -f ./report/report.pdf
