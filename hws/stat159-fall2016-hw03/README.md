@@ -28,8 +28,14 @@ Replicate the analysis by Gareth James, Daniela Witten, Trevor Hastie and Robert
 
 **NOTE:** You NEED to have the required R packages installed as well as LaTex in order for the command `make all` to run without producing any errors. The required R packages are `stargazer` and `testthat`. 
 
+## Licenses
+
+All media content (e.g. report/., images/.) licensed under CC-BY  
 [Creative Commons License](http://creativecommons.org/licenses/by-sa/4.0/) 
 ![creative commones license](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
+
+All code (e.g. code/.) licenced under the Apache License, Version 2.0
+    * See file `LICENSE` to read the license
 
 
 
