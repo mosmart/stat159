@@ -1,7 +1,9 @@
-# Goal
+# Multiple Regression Analysis
+
+## Goal
 Replicate the analysis by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani in Section 3.2 of Chapter 3. *Linear Regression* in "An Introduction to Statistical Learning." Also write functions and test them using the R `testthat` package.
 
-# The Process
+## The Process
 1. The file structure was set up using the following code:
 
         mkdir stat159-fall2016-hw03    
@@ -17,7 +19,7 @@ Replicate the analysis by Gareth James, Daniela Witten, Trevor Hastie and Robert
 3. The file `report.Rmd` contains the text content of the paper and takes in the output of the `/code` files, which include tables, histograms, and simple linear regression summary statistics.
 4. The Makefile automates the entire process, first downloading the Advertising dataset, then running the files in `/code` which generate the files in `/data` and `/images`, and then running `report.Rmd` which outputs the final paper as a PDF. 
 
-# Replicating this analysis
+## Replicating this analysis
 1. Clone this gitHub folder `stat159-fall2016-hw03`
 2. Navigate to the parent directory and look at the file `session-info.txt` to know what libraries must be installed in order to run the analysis and other information generated from the output of the function `sessionInfo()`
 3.  After verifying that you have the required packages and version of R, in the parent directory, run the command `make data` to download the dataset `Advertising.csv` used for all testing and analysis
