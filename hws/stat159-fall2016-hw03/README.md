@@ -1,5 +1,7 @@
 # Multiple Regression Analysis
 
+#### Author: Morgan Smart
+
 ## Goal
 Replicate the analysis by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani in Section 3.2 of Chapter 3. *Linear Regression* in "An Introduction to Statistical Learning." Also write functions and test them using the R `testthat` package.
 
