@@ -36,8 +36,7 @@ All media content (e.g. report/., images/.) licensed under CC-BY
 [Creative Commons License](http://creativecommons.org/licenses/by-sa/4.0/) 
 ![creative commones license](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
-All code (e.g. code/.) licenced under the Apache License, Version 2.0
-    * See file `LICENSE` to read the license
+All code (e.g. code/.) licenced under the Apache License, Version 2.0: See file `LICENSE` to read the license
 
 
 
