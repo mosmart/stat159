@@ -11,7 +11,7 @@ This GitHub repository contains all of the work I completed while taking RCSDS d
 ### Directories:
 
 1. hws - contains all of the homeworks
-2. labs - contains all of the labs
-3. projects - contains all of the projects
+2. labs - contains all of the labs (labs in grey were created in seperate repositories, named the same as what they are here in grey)
+3. projects - contains all of the projects (projects in grey were created in seperate repositories, named the same as what they are here in grey)
 
 
